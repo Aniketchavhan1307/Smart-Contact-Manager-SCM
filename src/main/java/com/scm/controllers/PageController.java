@@ -9,20 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class PageController 
 {
-	@RequestMapping("/demo")
-	public String home(Model model)
-	{
-		// sending data to view i.e home.html
-		
-		model.addAttribute("Name", "Aniket");
-		model.addAttribute("YouTube", "Learn with Aniket");
-		model.addAttribute("google", "https://www.google.com/");
-		
-		return "demo";
-	}
-
-	
-	
 	@RequestMapping("/home")
 	public String home()
 	{
