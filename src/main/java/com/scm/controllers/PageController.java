@@ -78,12 +78,12 @@ public class PageController
 		return new String("login");
 	}
 	
-//	@PostMapping("/login")
-//	public String loginpost()
-//	{
-//		
-//		return new String("login");
-//	}
+	@PostMapping("/login")
+	public String loginpost()
+	{
+		
+		return new String("login");
+	}
 	
 	@GetMapping("/signup")
 	public String signup(Model model)
@@ -92,7 +92,8 @@ public class PageController
 		
 //	       form.setName("Aniket");
 //	       form.setAbout("Hello");
-		// default data 
+		// default data  ........ we can pass default value to signup page with the help of model attribute
+		
 		model.addAttribute("userForm", form);
 		
 		return "signup";
@@ -145,7 +146,7 @@ public class PageController
 		
 		session.setAttribute("message", message);
 		
-		return "redirect:/signup";
+		return "redirect:/login";
 
 	}
 	

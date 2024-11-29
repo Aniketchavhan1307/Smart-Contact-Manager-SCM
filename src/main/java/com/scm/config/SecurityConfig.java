@@ -29,6 +29,8 @@ public class SecurityConfig
 	@Autowired
 	private SecurityCustomUserDetailService customUserDetailService;
 
+	@Autowired
+	private OAuthAuthenticationSuccessHandler handler;
 
 	// configuration of authentication provider for spring security
     @Bean
@@ -121,7 +123,7 @@ public class SecurityConfig
     	httpSecurity.oauth2Login(oauth ->{
     		oauth.loginPage("/login");
     		
-    		oauth.successHandler(null);
+    		oauth.successHandler(handler);
     	});
     	
     	

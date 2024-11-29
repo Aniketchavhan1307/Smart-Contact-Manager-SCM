@@ -69,7 +69,7 @@ public class User implements UserDetails
 	// self , google , facebook , twitter, linkedin, github
 	@Enumerated(value = EnumType.STRING)
 	private Providers provider = Providers.SELF;
-	private Providers providerUserId;
+	private String providerUserId;
 	
 	
 	// add more fields if needed
