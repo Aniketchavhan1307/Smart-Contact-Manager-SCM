@@ -2,7 +2,6 @@ package com.scm.entities;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +22,6 @@ import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,11 +31,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
-@Data
 public class User implements UserDetails
 {
+	public User() {}
+	
 	@Id
 	private String userId;
 	
@@ -61,7 +59,7 @@ public class User implements UserDetails
 	
 	// information
 	//@Getter(value = AccessLevel.NONE)                      // option if you want custom logic then override getter method
-	private boolean enabled = true;
+	private boolean enabled = false;
 	private boolean emailVarified = false;
 	private boolean phoneVerified = false;
 	
@@ -83,6 +81,9 @@ public class User implements UserDetails
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roleList = new ArrayList<>();
 	
+	
+	private String emailToken;
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 	
@@ -94,7 +95,7 @@ public class User implements UserDetails
 		return roles;
 	}
 
-// for this project email id ====> userName that's why this.email
+// for this project email id is userName====> userName that's why this.email
 	@Override
 	public String getUsername() {
 		return this.email;

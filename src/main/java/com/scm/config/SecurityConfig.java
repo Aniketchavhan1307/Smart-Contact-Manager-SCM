@@ -32,6 +32,12 @@ public class SecurityConfig
 	@Autowired
 	private OAuthAuthenticationSuccessHandler handler;
 
+	 @Autowired
+	private AuthFailureHandler authFailureHandler;
+	
+	
+	
+	
 	// configuration of authentication provider for spring security
     @Bean
     public DaoAuthenticationProvider authenticationProvider()
@@ -41,7 +47,7 @@ public class SecurityConfig
 		//user detail service ka object
 		daoAuthenticationProvider.setUserDetailsService(customUserDetailService);
 		
-		// password encodar ka object
+		// password encoder ka object
 		daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
 		
 		return daoAuthenticationProvider;
@@ -62,6 +68,8 @@ public class SecurityConfig
     		authorize.requestMatchers("/user/**").authenticated();
     		// here giving the access or permission to any request other than the user like login page can view anyone so we give the permission
     		authorize.anyRequest().permitAll();
+    		
+    		
     	});
     	
     	// form default login
@@ -77,9 +85,12 @@ public class SecurityConfig
     		formLogin.loginProcessingUrl("/authenticate");
     		
     		// if user successfully login then user forward to dashboard
-    		formLogin.successForwardUrl("/user/dashboard");
+    		formLogin.successForwardUrl("/user/profile");
     		
-    		formLogin.failureForwardUrl("/login?error=true");
+    		
+    		formLogin.defaultSuccessUrl("/user/profile", true);
+    		
+    		//formLogin.failureForwardUrl("/login?error=true");
     		
     		formLogin.usernameParameter("email");
     		formLogin.passwordParameter("password");
@@ -105,16 +116,14 @@ public class SecurityConfig
 				}
 			});    */
     		
+    		formLogin.failureHandler(authFailureHandler);
+    		
     	});
     	
+    	
+
     	// disable the default logout option provided by the spring security
     	httpSecurity.csrf(AbstractHttpConfigurer :: disable);
-    	
-    	// custom logout url
-    	httpSecurity.logout(logoutForm -> {
-    		logoutForm.logoutUrl("/do-logout");
-    		logoutForm.logoutSuccessUrl("/login?logout=true");
-    	});
     	
     	
     	
@@ -127,8 +136,20 @@ public class SecurityConfig
     	});
     	
     	
+    	// custom logout url
+    	httpSecurity.logout(logoutForm -> {
+    		logoutForm.logoutUrl("/do-logout");
+    		logoutForm.logoutSuccessUrl("/login?logout=true");
+    	});
+    	
+    	
     	return httpSecurity.build();
     }
+    
+    
+    
+    
+    
     
     
 	@Bean

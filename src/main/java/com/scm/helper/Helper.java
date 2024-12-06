@@ -4,7 +4,9 @@ package com.scm.helper;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Helper 
 {
 	
@@ -15,7 +17,7 @@ public class Helper
 		// if we login with google  then how to get email address
 		// if we login with github and password then how to get email address
 
-		
+		//====================Login user Email====================================
 		
 		if ( authentication instanceof OAuth2AuthenticationToken)
 		{
@@ -55,4 +57,25 @@ public class Helper
 		}
 
 	}
+	
+	
+	
+	//====================== Email verification link ==========================================
+	
+	
+	public static String getLinkForEmailVerification(String emailToken) 
+	{
+		String link = "http://localhost:8080/auth/verify-email?token="+emailToken;
+		
+		return link;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

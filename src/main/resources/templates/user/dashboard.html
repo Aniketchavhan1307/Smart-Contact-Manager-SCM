@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace = "~{base :: parent(~{:: #content}, ~{::title},~{::script})}">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>dashboard</title>
-
+	
+	<title data-th-text="${loggedlnUser.name}+ '| Dashboard'">dashboard Page</title>
+    
 </head>
 <body>
-	<h1>This is user Dashboard Page</h1>
+	<div id="content">
+		
+			<!--This is for logged-in user : Side-bar-->
+			<div th:if="${loggedlnUser}">
+				<div data-th-replace="~{user/sidebar :: sidebar}"></div> <!-- This is another way of replacing content-->
+			
+			</div>
+		
+	<!--This is main content-->
 	
-	<a data-th-href="@{'/do-logout'}"> Logout</a>
+		<div  class="sm:pl-64 pt-20" style="height: 1000px">
+			<div class="flex justify-center flex-col items-center ">
+		
+				<h1 class="text-5xl">Welcome to dashboard page</h1>
+				
+				<h1 data-th-text ="${loggedlnUser.name}"></h1>
+				<h1 data-th-text ="${loggedlnUser.email}"></h1>
+						
+		
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, recusandae. Dignissimos, porro ipsam hic ad
+					enim
+					voluptatum. Ea, aliquam quod!</p>
+		
+				<button class="px-3 py-3 rounded bg-blue-700 text-white hover:bg-green-700">click me</button>
+		
+			</div>
+		
+		</div>
+		    
+		
+	</div>
 	
-	<h1 data-th-text ="${loggedlnUser.name}"></h1>
-		<h1 data-th-text ="${loggedlnUser.email}"></h1>
-
+	<script>
+			     console.log("This is profile  page");
+		  </script>
+	    
 </body>
 </html>
+
+

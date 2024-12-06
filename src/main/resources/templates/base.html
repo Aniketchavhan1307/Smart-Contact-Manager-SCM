@@ -26,9 +26,24 @@ th:fragment="parent(content,title,script)"
 
 <body class="dark:bg-gray-900 bg-gray-100 dark:text-white">
 	
-	<div data-th-replace="navbar :: navbar">
-		
+	
+	<!--This is for logged-in user : Navbar-->
+	<div th:if="${loggedlnUser}">
+		<div data-th-replace="user/user_navbar::user-navbar">
+			
+		</div>
 	</div>
+	
+
+	
+	
+	<!--if user is not  logged-in then this navbar will work-->
+	<div th:unless="${loggedlnUser}">
+			<div data-th-replace="navbar :: navbar"></div>
+		</div>
+	
+	
+	
 	
 	<div class="p-4" >
 		<!-- main content -->
@@ -41,7 +56,11 @@ th:fragment="parent(content,title,script)"
 		Footer : Learn code with Aniket
 	</footer>-->
 
+	<!--flowbite is for designing part-->
 	<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+<!--sweetalert for pop-up message-->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<script data-th-src="@{'/js/script.js'}"></script>
 	

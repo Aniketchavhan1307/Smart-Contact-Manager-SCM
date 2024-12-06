@@ -1,15 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace = "~{base :: parent(~{:: #content}, ~{::title},~{::script})}">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>profile</title>
-
+	
+	<title data-th-text="${loggedlnUser.name}+ '| SCM'">Profile Page</title>
+    
 </head>
 <body>
-	<h1>This is user profile Page</h1>
-	<h1 data-th-text ="${loggedlnUser.name}"></h1>
-	<h1 data-th-text ="${loggedlnUser.email}"></h1>
+	<div id="content">
+		
+			<!--This is for logged-in user : Side-bar-->
+			<!--<div th:if="${loggedlnUser}">
+				<div data-th-replace="~{user/sidebar :: sidebar}"></div>  This is another way of replacing content
+			
+			</div>-->
+		
+			<!-- user is logged in : sidebar -->
 
+			      <div th:if="${loggedlnUser}">
+			        <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+			      </div>
+
+			      <div class="sm:pl-64 pt-20" style="height: 1000px">
+			        <div class="flex items-center justify-center md:pt-32 flex-col">
+			          <!--  profie card -->
+			          <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-2xl w-full">
+			            <div class="flex flex-col items-center">
+			                <img data-th-src="@{${loggedlnUser.profilePic}}" onerror="this.onerror=null; this.src='https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1677509740.jpg'" alt="Profile Photo" class="w-44 h-44 rounded-full shadow-lg object-cover mb-4">
+			                <h2 class="text-2xl font-semibold mb-2" data-th-text=${loggedlnUser.name}>User Name</h2>
+			                <p class="text-gray-600 mb-2" data-th-text="${loggedlnUser.email}">user.email@example.com</p>
+			                <p class="text-gray-600 mb-2" data-th-text="${loggedlnUser.phoneNumber}">123-456-7890</p>
+			                <p class="text-gray-600 mb-4 text-center" data-th-text="${loggedlnUser.about}">About the user...</p>
+			                <div class="w-full flex justify-between">
+			                    <p class="text-sm text-gray-500">Email Verified: <span class="font-medium text-gray-700" id="email-verified" data-th-text="${loggedlnUser.emailVarified ? 'YES':'NO'}">No</span></p>
+			                    <p class="text-sm text-gray-500">Phone Verified: <span class="font-medium text-gray-700" id="phone-verified" data-th-text="${loggedlnUser.phoneVerified ? 'YES':'NO'}">No</span></p>
+			                </div>
+			            </div>
+			        </div>
+			      </div>
+		
+	</div>
+	
+	<script>
+			     console.log("This is profile  page");
+		  </script>
+	    
 </body>
 </html>
+
+

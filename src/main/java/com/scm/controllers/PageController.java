@@ -78,12 +78,9 @@ public class PageController
 		return new String("login");
 	}
 	
-	@PostMapping("/login")
-	public String loginpost()
-	{
-		
-		return new String("login");
-	}
+
+	
+	
 	
 	@GetMapping("/signup")
 	public String signup(Model model)
@@ -130,6 +127,9 @@ public class PageController
 	user.setEmail(userForm.getEmail());
 	user.setPassword(userForm.getPassword());
 	user.setAbout(userForm.getAbout());
+	
+	user.setEnabled(false);         // this statement will decide the user is de-active / disable
+	
 	user.setPhoneNumber(userForm.getPhoneNumber());
 	user.setProfilePic("https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ADefault_pfp.jpg&psig=AOvVaw3Qb0xFNtb_pjwwOOS0n4Rk&ust=1732739356012000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPjE_qnr-okDFQAAAAAdAAAAABAE");
 	
