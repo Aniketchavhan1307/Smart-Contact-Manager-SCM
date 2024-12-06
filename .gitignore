@@ -33,6 +33,6 @@ build/
 .vscode/
 
 
-application.properties
+application.properties 		### now application.properties don't have any hard code keys and secrete ###
 
 "application.properties" 
