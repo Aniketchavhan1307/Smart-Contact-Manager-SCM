@@ -1,4 +1,107 @@
 <!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+  <title data-th-text="${loggedlnUser.name} + ' | SCM Dashboard'">Dashboard</title>
+  
+</head>
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition duration-300">
+  <div id="content" class="flex">
+    
+    <!-- Sidebar Section This is for logged-in user : Side-bar-->
+	
+				<div th:if="${loggedlnUser}">
+					<div data-th-replace="~{user/sidebar :: sidebar}"></div>  This is another way of replacing content
+				
+				</div>
+
+				
+    <!-- Main Dashboard Content Section -->
+    <div class="sm:pl-64 pt-20 ">
+      
+      <!-- User Info and Dashboard Title -->
+      <div class="flex justify-between mb-6">
+        <h1 class="text-3xl font-semibold">Welcome to Your Dashboard <span  data-th-text="${loggedlnUser.name}"></span> </h1>
+        <!-- Theme Toggle Button -->
+      
+      </div>
+
+      <!-- Dashboard Overview Section -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <!-- Card 1: Total Contacts -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition transform hover:scale-105">
+          <h3 class="text-xl font-semibold mb-2">Total Contacts</h3>
+          <p class="text-3xl font-bold text-blue-600">150</p>
+        </div>
+        <!-- Card 2: Active Syncs -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition transform hover:scale-105">
+          <h3 class="text-xl font-semibold mb-2">Active Syncs</h3>
+          <p class="text-3xl font-bold text-green-600">5</p>
+        </div>
+        <!-- Card 3: Pending Tasks -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition transform hover:scale-105">
+          <h3 class="text-xl font-semibold mb-2">Pending Tasks</h3>
+          <p class="text-3xl font-bold text-yellow-600">2</p>
+        </div>
+      </div>
+
+      <!-- Recent Activities Section -->
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-semibold mb-4">Recent Activities</h3>
+        <ul class="space-y-4">
+          <li class="flex justify-between">
+            <span class="text-gray-600 dark:text-gray-300">Added new contact: John Doe</span>
+            <span class="text-gray-500 dark:text-gray-400 text-sm">2 minutes ago</span>
+          </li>
+          <li class="flex justify-between">
+            <span class="text-gray-600 dark:text-gray-300">Synced 5 contacts to cloud</span>
+            <span class="text-gray-500 dark:text-gray-400 text-sm">10 minutes ago</span>
+          </li>
+          <li class="flex justify-between">
+            <span class="text-gray-600 dark:text-gray-300">Updated profile picture</span>
+            <span class="text-gray-500 dark:text-gray-400 text-sm">1 hour ago</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+
+  <script>
+    console.log("This is the Dashboard page");
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
 <html lang="en" th:replace = "~{base :: parent(~{:: #content}, ~{::title},~{::script})}">
 <head>
 	
@@ -8,13 +111,13 @@
 <body>
 	<div id="content">
 		
-			<!--This is for logged-in user : Side-bar-->
+			This is for logged-in user : Side-bar
 			<div th:if="${loggedlnUser}">
-				<div data-th-replace="~{user/sidebar :: sidebar}"></div> <!-- This is another way of replacing content-->
+				<div data-th-replace="~{user/sidebar :: sidebar}"></div>  This is another way of replacing content
 			
 			</div>
 		
-	<!--This is main content-->
+	This is main content
 	
 		<div  class="sm:pl-64 pt-20" style="height: 1000px">
 			<div class="flex justify-center flex-col items-center ">
@@ -43,6 +146,6 @@
 		  </script>
 	    
 </body>
-</html>
+</html>-->
 
 

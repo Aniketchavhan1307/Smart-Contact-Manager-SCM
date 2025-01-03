@@ -1,4 +1,81 @@
 <!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+    <title>Contact Us</title>
+    
+</head>
+<body>
+    <div id="content">
+        
+        <!-- Banner Section -->
+        <section class="bg-blue-600 text-white py-20 animate__animated animate__fadeInDown">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-4">Contact Us</h2>
+                <p class="text-lg mb-8">We'd love to hear from you. Feel free to reach out with any questions or feedback.</p>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="py-20 bg-white dark:bg-gray-800">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-12 animate__animated animate__fadeInUp">Get in Touch</h2>
+                
+                <div class="max-w-xl mx-auto">
+                    <form action="#" method="POST" class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                        <div class="mb-4">
+                            <label for="name"  class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
+                            <input type="text" placeholder="Enter your Name" id="name" name="name" required class="mt-1 text-black block w-full text-black p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+                            <input type="email" placeholder="Enter your Email" id="email" name="email" required class="mt-1 text-black block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
+                            <textarea id="message" placeholder="Enter your Message" name="message" required rows="4" class="mt-1 text-black block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="bg-gray-800 text-white py-8">
+            <div class="container mx-auto text-center">
+                <p>&copy; 2024 Contact Manager. All rights reserved.</p>
+                <p>Follow us on <a href="#" class="text-blue-400">Facebook</a>, <a href="#" class="text-blue-400">Twitter</a>, and <a href="#" class="text-blue-400">Instagram</a>.</p>
+            </div>
+        </footer>
+    </div>
+    <script>
+        console.log("Contact Us page");
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
 <html lang="en" th:replace = "~{base :: parent(~{::#content},~{::title},~{::script})}">
 <head>
 	
@@ -25,4 +102,4 @@
 	   </script>
     
 </body>
-</html>
+</html>-->

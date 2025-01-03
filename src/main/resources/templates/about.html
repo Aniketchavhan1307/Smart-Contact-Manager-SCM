@@ -1,6 +1,89 @@
 <!DOCTYPE html>
 <html lang="en" th:replace = "~{base :: parent(~{::#content},~{::title},~{::script})}">
 <head>
+  <title>About Us</title>
+  
+</head>
+<body>
+  <div id="content" >
+    
+
+    <!-- Banner Section -->
+    <section class="bg-blue-600 text-white py-20 animate__animated animate__fadeInDown">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-4">About Us</h2>
+        <p class="text-lg mb-8">Learn more about our mission, vision, and the team behind Contact Manager.</p>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-12 animate__animated animate__fadeInUp">Who We Are</h2>
+        <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">At Contact Manager, our mission is to simplify and secure the way you manage your personal and professional contacts. With innovative features and a commitment to user satisfaction, we aim to be the most trusted platform for contact management worldwide.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+            <i class="fas fa-bullseye text-blue-600 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Our Mission</h3>
+            <p class="text-gray-600 dark:text-gray-300">To provide a seamless, secure, and user-friendly platform for managing contacts effectively.</p>
+          </div>
+          <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+            <i class="fas fa-eye text-blue-600 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Our Vision</h3>
+            <p class="text-gray-600 dark:text-gray-300">To empower individuals and businesses with cutting-edge contact management solutions.</p>
+          </div>
+          <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+            <i class="fas fa-users text-blue-600 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Our Team</h3>
+            <p class="text-gray-600 dark:text-gray-300">A dedicated group of developers, designers, and visionaries committed to excellence.</p>
+          </div>
+        </div>
+
+        
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="bg-blue-600 text-white py-20 animate__animated animate__fadeInUp">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">Join Us on Our Journey</h2>
+        <p class="text-lg mb-8">Be part of our growing community and experience the best in contact management.</p>
+        <a data-th-href="@{'/login'}" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">Get Started</a>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2024 Contact Manager. All rights reserved.</p>
+        <p>Follow us on <a href="#" class="text-blue-400">Facebook</a>, <a href="#" class="text-blue-400">Twitter</a>, and <a href="#" class="text-blue-400">Instagram</a>.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    console.log("About Us page");
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en" th:replace = "~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
 	
     <title>About Page</title>
 </head>
@@ -22,4 +105,4 @@
 	  </script>
     
 </body>
-</html>
+</html>-->
